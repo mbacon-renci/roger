@@ -9,7 +9,7 @@ with DAG(
         schedule_interval="25 4 * * *",
 ) as dag:
 
-    dummy = DummyOperator("Initial task")
+    dummy = DummyOperator(task_id"dummy_task")
 
     writer = BashOperator(task_id="date_writer",
                           bash_command='date >> '
