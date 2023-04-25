@@ -16,5 +16,10 @@ with DAG(
 
     writer = BashOperator(task_id="date_writer",
                           bash_command='date >> '
-                          '/opt/airflow/share/data')
+                          '/opt/airflow/share/data/'
+                          '_write_date_'
+                          '{{ dag.dag_id }}_'
+                          '{{ ti.task_id }}_'
+                          '{{ ti.run_id }}'
+                          )
     dummy >> writer
