@@ -1,4 +1,4 @@
-## Pip install for roger
+### Pip install for roger
 
 Currently roger is installed with a git pull (managed by the Docker
 helm chart) to the dag directory of the Airflow scheduler
@@ -11,3 +11,8 @@ We propose to move the library code out of the dag directory and have
 the main Roger code be installed into the local python environment
 using `pip` (or similar) such that the main library functions can be
 imported from any working directory uniformly.
+
+In addition, having it be installable as a python package would allow
+for the command line scripts to be reliably placed into the
+environment execution path, which would require setting fewer
+environment variables on install of roger.
