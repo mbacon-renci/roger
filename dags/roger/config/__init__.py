@@ -38,6 +38,7 @@ class KgxConfig(DictLike):
     biolink_model_version: str = "1.5.0"
     dataset_version: str = "v1.0"
     merge_db_id: int = 1
+    merge_db_temp_dir: str = "workspace"
     data_sets: List = field(default_factory=lambda: ['baseline-graph'])
 
     def __post_init__(self):
@@ -51,7 +52,6 @@ class KgxConfig(DictLike):
 @dataclass
 class DugInputsConfig(DictLike):
     data_source: str = 'stars'
-    dataset_version: str = "v1.0"
     data_sets: List = field(default_factory=lambda: ['topmed', 'bdc'])
 
     def __post_init__(self):
