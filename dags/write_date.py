@@ -32,7 +32,7 @@ with DAG(
             containers=[
                 k8s.V1Container(
                     name='base',
-                    volume_mounts=volume_mounts)
+                    volume_mounts=volume_mounts),
                 k8s.V1Container(
                     name='sidecar',
                     image='containers.renci.org/helxplatform/roger:0.10.3-dev',
@@ -41,8 +41,8 @@ with DAG(
                     command=["bash", "-cx"],
                     volume_mounts=volume_mounts)
             ]
-        }
-
+        )
+    }
     dummy = DummyOperator(task_id="dummy_task")
 
     writer = BashOperator(task_id="date_writer",
