@@ -51,6 +51,8 @@ with DAG(
                           '_write_date_'
                           '{{ dag.dag_id }}_'
                           '{{ ti.task_id }}_'
-                          '{{ ti.run_id }}'
+                          '{{ ti.run_id }}',
+                          executor_config=sidecar_config
                           )
+
     dummy >> writer
